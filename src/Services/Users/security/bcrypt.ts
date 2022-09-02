@@ -1,4 +1,3 @@
-
 import * as bcrypt from 'bcrypt';
 
 export function encodePassword(rawpassword: string){

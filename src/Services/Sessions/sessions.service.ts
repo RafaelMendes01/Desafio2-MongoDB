@@ -1,26 +1,33 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { UpdateSessionDto } from './dto/update-session.dto';
+import { Sessions, SessionsDocument } from './entities/session.entity';
 
 @Injectable()
 export class SessionsService {
-  create(createSessionDto: CreateSessionDto) {
-    return 'This action adds a new session';
+  constructor(@InjectModel(Sessions.name) private sessionModel: Model<SessionsDocument>) {}
+  async create(createSessionDto: CreateSessionDto) {
+    const sessions = await this.sessionModel.create(createSessionDto);
+    return sessions;
   }
 
-  findAll() {
-    return `This action returns all sessions`;
+  async findAll() {
+    return this.sessionModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} session`;
+  async findOne(id: string) {
+    return this.sessionModel.findById(id);
   }
 
-  update(id: number, updateSessionDto: UpdateSessionDto) {
-    return `This action updates a #${id} session`;
+  async update(id: string, updateSessionDto: UpdateSessionDto) {
+    const sessions = await this.sessionModel.updateOne({_id: id}, updateSessionDto, {new: true});
+    return sessions;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} session`;
+  async remove(id: string) {
+    const sessions = await this.sessionModel.deleteOne({_id: id}).exec();
+    return sessions
   }
 }
