@@ -4,7 +4,7 @@ import { UsersModule } from 'src/Services/Users/users.module';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { LoginValidationMiddleware } from './middlewares/login-validation-middleware';
-import { JwtStrategy } from 'src/auth/strategies/jwt.strategy';
+import { JwtStrategy } from 'src/Services/auth/strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local-strategy';
 import { Sessions, SessionsSchema } from 'src/Services/Sessions/entities/session.entity';
 import { MongooseModule } from '@nestjs/mongoose';
