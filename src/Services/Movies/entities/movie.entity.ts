@@ -8,13 +8,13 @@ export type MovieDocument = Movie & Document;
 
 @Schema()
 export class Movie {
-  @Prop({type: Object})
+  @Prop({type: Object, required: true})
   awards: Awards;
 
   @Prop({type: Array})
   cast: string;
 
-  @Prop({type: Array})
+  @Prop({type: Array, required: true})
   countries: string;
 
   @Prop({type: Array})
@@ -26,13 +26,13 @@ export class Movie {
   @Prop({type: Array})
   genres: string;
 
-  @Prop({type: Object})
+  @Prop({type: Object, required: true})
   imdb: Imdb;
 
   @Prop({type: Array})
   languages: string;
 
-  @Prop()
+  @Prop({required: true})
   lastupdated: string;
 
   @Prop()
@@ -56,19 +56,19 @@ export class Movie {
   @Prop()
   runtime: number;
 
-  @Prop()
+  @Prop({required: true})
   title: string;
 
   @Prop({type: Object})
   tomatoes: Tomatoes;
 
-  @Prop()
+  @Prop({required: true})
   type: string;
 
   @Prop({type: Array})
   writers: string;
 
-  @Prop()
+  @Prop({required: true})
   year: number;
 }
 export const MovieSchema = SchemaFactory.createForClass(Movie);

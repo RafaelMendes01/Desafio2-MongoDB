@@ -6,19 +6,19 @@ export type CommentsDocument = Comments & Document;
 
 @Schema()
 export class Comments {
-    @Prop()
+    @Prop({required: true})
     name: string;
 
-    @Prop()
+    @Prop({required: true})
     email: string;
 
-    @Prop()
+    @Prop({required: true})
     date: Date
 
-    @Prop()
+    @Prop({required: true})
     text: string
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'movies' })
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'movies', required: true })
     movie_id: string;
 }
 

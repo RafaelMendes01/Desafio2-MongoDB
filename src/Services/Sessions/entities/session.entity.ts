@@ -6,10 +6,10 @@ export type SessionsDocument = Sessions & Document;
 
 @Schema()
 export class Sessions {
-    @Prop()
+    @Prop({required: true})
     jwt: string;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'users' })
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'users', required: true })
     user_id: string;
 }
 

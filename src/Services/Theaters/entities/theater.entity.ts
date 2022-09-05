@@ -6,10 +6,10 @@ export type TheaterDocument = Theater & Document;
 
 @Schema()
 export class Theater {
-  @Prop()
+  @Prop({required: true})
   theaterId: number
 
-  @Prop({type: Object})
+  @Prop({type: Object, required: true})
   location: location
 }
 
