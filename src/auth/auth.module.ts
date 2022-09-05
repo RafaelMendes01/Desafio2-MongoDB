@@ -6,12 +6,16 @@ import { AuthService } from './auth.service';
 import { LoginValidationMiddleware } from './middlewares/login-validation-middleware';
 import { JwtStrategy } from 'src/auth/strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local-strategy';
+import { Sessions, SessionsSchema } from 'src/Services/Sessions/entities/session.entity';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [UsersModule, JwtModule.register({
     secret: process.env.JWT_SECRET,
     signOptions: {expiresIn: '300d'}
-  })],
+  }),
+  MongooseModule.forFeature([{ name: Sessions.name, schema: SessionsSchema }])
+],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy]
 })
