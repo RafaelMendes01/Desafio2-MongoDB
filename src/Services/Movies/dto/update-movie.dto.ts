@@ -8,22 +8,22 @@ import { CreateMovieDto } from './create-movie.dto';
 export class UpdateMovieDto extends PartialType(CreateMovieDto) {
     @ApiProperty({
         description: 'Premios que o filme recebeu',
-        example: 'wins 2'
+        example: "['wins': 1, 'nominations': 0, 'text': '1 win']"
     })
     awards: Awards;
     @ApiProperty({
         description: 'Elenco que participou do filme',
-        example: 'Nicolas Cage'
+        example: "['Nicolas Cage', 'Dwayne Johnson']"
     })
     cast: string[];
     @ApiProperty({
-        description: 'paises que o filme foi lançado',
-        example: 'Brazil, China'
+        description: 'paises que o filme foi feito',
+        example: "['Brazil', 'China']"
     })
     countries: string[];
     @ApiProperty({
         description: 'diretores do filmes',
-        example: 'Fulano de tal'
+        example: "['pedro', 'joão', 'Maria']"
     })
     directors: string[];
     @ApiProperty({
@@ -33,17 +33,17 @@ export class UpdateMovieDto extends PartialType(CreateMovieDto) {
     fullplot: string;
     @ApiProperty({
         description: 'generos do filme',
-        example: 'terror, comedia, ação'
+        example: "['terror', 'comedia', 'ação']"
     })
     genres: string[];
     @ApiProperty({
         description: 'notas do filme no imdb',
-        example: 'Brazil, China'
+        example: "['rating': 7.8, 'votes': 1000, 'id': 12225]"
     })
     imdb: Imdb;
     @ApiProperty({
         description: 'linguagens do filme',
-        example: 'ingles, mandarim, esperanto'
+        example: "['ingles', 'mandarim', 'esperanto']"
     })
     languages: string[];
     @ApiProperty({
@@ -53,7 +53,7 @@ export class UpdateMovieDto extends PartialType(CreateMovieDto) {
     lastupdated: string;
     @ApiProperty({
         description: 'nota do filme no metacritic',
-        example: 'rated 7'
+        example: '78'
     })
     metacritic: number;
     @ApiProperty({
@@ -73,7 +73,7 @@ export class UpdateMovieDto extends PartialType(CreateMovieDto) {
     poster: string;
     @ApiProperty({
         description: 'o estado de analise do filme',
-        example: 'não analisado, passou'
+        example: 'PASSED'
     })
     rated: string;
     @ApiProperty({
@@ -98,12 +98,12 @@ export class UpdateMovieDto extends PartialType(CreateMovieDto) {
     tomatoes: Tomatoes;
     @ApiProperty({
         description: 'tipo de metragem',
-        example: 'filme, serie, curta'
+        example: "['viewer': {'rating': 4, 'numReviews': 400, 'meter': 88 }, 'lastupdated': 2015-08-20T18:51:24.000+00:00]"
     })
     type: string;
     @ApiProperty({
         description: 'escritores do filme',
-        example: 'ciclano, beltrano'
+        example: "['Paulo', 'josé', 'Joana']"
     })
     writers: string[];
     @ApiProperty({

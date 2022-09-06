@@ -20,7 +20,7 @@ export class UpdateCommentDto extends PartialType(CreateCommentDto) {
     email: string;
     @ApiProperty({
         description: 'id do filme que recebeu o comentario',
-        example: '12312h3j1h21fe2ty2'
+        example: '573a1390f29313caabcd421'
     })
     movie_id: string;
     @ApiProperty({

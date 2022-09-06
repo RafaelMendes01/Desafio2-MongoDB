@@ -1,4 +1,5 @@
 import { Controller, HttpCode, HttpStatus, Post, UseGuards, Request } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { IsPublic } from './decorators/is_public_decorator';
 import { LocalAuthGuard } from './guards/local-auth-guards';
@@ -8,7 +9,7 @@ import { authRequest } from './models/auth-request';
 export class AuthController {
     constructor( private readonly authservice: AuthService){}
 
-
+    @ApiTags('users')
     @IsPublic()
     @Post('login')
     @HttpCode(HttpStatus.OK)

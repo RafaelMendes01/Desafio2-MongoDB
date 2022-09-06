@@ -9,7 +9,7 @@ export class CreateTheaterDto {
     theaterId: number
     @ApiProperty({
         description: 'localização do teatro',
-        example: 'rua tal cidade tal'
+        example: "'address': {'street1': '1207 W Century Ave','street2': '1208 W Century Ave','city': 'Pacatuba', 'State': 'CE', 'zipcode': '13214'}, 'geo': {'type': 'Point', 'coordinates': [-100.81214, 46.829876]}"
     })
     location: location
 }
