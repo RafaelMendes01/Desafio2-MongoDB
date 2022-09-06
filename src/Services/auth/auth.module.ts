@@ -12,7 +12,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 @Module({
   imports: [UsersModule, JwtModule.register({
     secret: process.env.JWT_SECRET,
-    signOptions: {expiresIn: '300d'}
+    signOptions: {expiresIn: '8h'}
   }),
   MongooseModule.forFeature([{ name: Sessions.name, schema: SessionsSchema }])
 ],

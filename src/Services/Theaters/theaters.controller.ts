@@ -6,7 +6,6 @@ import { ApiTags } from '@nestjs/swagger';
 import { IsPublic } from 'src/Services/auth/decorators/is_public_decorator';
 
 @ApiTags('theaters')
-@IsPublic()
 @Controller('theaters')
 export class TheatersController {
   constructor(private readonly theatersService: TheatersService) {}
