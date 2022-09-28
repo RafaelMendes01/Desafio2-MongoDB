@@ -17,6 +17,11 @@ export class TheatersService {
     return this.theaterModel.find();
   }
 
+  async findAndPaginate(limit: number, skip: number){
+    const skipValue = limit * (skip - 1)
+    return this.theaterModel.find().limit(limit).skip(skipValue);
+  }
+
   async findOne(id: string) {
     return this.theaterModel.findById(id);
   }

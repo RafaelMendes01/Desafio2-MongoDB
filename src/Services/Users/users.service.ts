@@ -21,6 +21,11 @@ export class UsersService {
     return this.userModel.find();
   }
 
+  async findAndPaginate(limit: number, skip: number){
+    const skipValue = limit * (skip - 1)
+    return this.userModel.find().limit(limit).skip(skipValue);
+  }
+
   async findOne(id: string) {
     return this.userModel.findById(id);
   }

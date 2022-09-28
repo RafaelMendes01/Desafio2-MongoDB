@@ -21,6 +21,11 @@ export class SessionsService {
     return this.sessionModel.findById(id);
   }
 
+  async findAndPaginate(limit: number, skip: number){
+    const skipValue = limit * (skip - 1)
+    return this.sessionModel.find().limit(limit).skip(skipValue);
+  }
+
   async update(id: string, updateSessionDto: UpdateSessionDto) {
     const sessions = await this.sessionModel.findOneAndUpdate({_id: id}, updateSessionDto, {new: true});
     return sessions;

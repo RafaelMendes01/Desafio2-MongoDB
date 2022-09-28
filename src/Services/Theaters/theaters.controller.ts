@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { TheatersService } from './theaters.service';
 import { CreateTheaterDto } from './dto/create-theater.dto';
 import { UpdateTheaterDto } from './dto/update-theater.dto';
@@ -18,6 +18,11 @@ export class TheatersController {
   @Get()
   findAll() {
     return this.theatersService.findAll();
+  }
+
+  @Get('paginate')
+  findAndPaginate(@Query('limit') limit: number, @Query('skip') skip: number) {
+    return this.theatersService.findAndPaginate(limit, skip);
   }
 
   @Get(':id')

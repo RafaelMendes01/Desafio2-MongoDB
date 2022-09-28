@@ -17,6 +17,11 @@ export class CommentsService {
     return this.commentsModel.find();
   }
 
+  async findAndPaginate(limit: number, skip: number){
+    const skipValue = limit * (skip - 1)
+    return this.commentsModel.find().limit(limit).skip(skipValue);
+  }
+
   async findOne(id: string) {
     return this.commentsModel.findById(id);
   }

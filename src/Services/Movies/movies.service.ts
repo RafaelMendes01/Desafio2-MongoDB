@@ -17,6 +17,11 @@ export class MoviesService {
     return this.movieModel.find();
   }
 
+  async findAndPaginate(limit: number, skip: number){
+    const skipValue = limit * (skip - 1)
+    return this.movieModel.find().limit(limit).skip(skipValue);
+  }
+
   async findOne(id: string) {
     return this.movieModel.findById(id);
   }
