@@ -22,7 +22,7 @@ export class CommentsService {
   }
 
   async update(id: string, updateCommentDto: UpdateCommentDto) {
-    const comments = await this.commentsModel.updateOne({_id: id}, updateCommentDto, {new: true});
+    const comments = await this.commentsModel.findOneAndUpdate({_id: id}, updateCommentDto, {new: true});
     return comments;
   }
 

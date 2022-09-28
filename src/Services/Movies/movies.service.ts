@@ -22,7 +22,7 @@ export class MoviesService {
   }
 
   async update(id: string, updateMovieDto: UpdateMovieDto) {
-    const movies = await this.movieModel.updateOne({ _id: id }, updateMovieDto, { new: true });
+    const movies = await this.movieModel.findOneAndUpdate({ _id: id }, updateMovieDto, { new: true });
     return movies;
   }
 

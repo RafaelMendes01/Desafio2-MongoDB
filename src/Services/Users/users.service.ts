@@ -31,7 +31,7 @@ export class UsersService {
   async update(id: string, updateUserDto: UpdateUserDto) {
     const password = encodePassword(updateUserDto.password)
     const NewUser = { ...updateUserDto, password}
-    const user = await this.userModel.updateOne({_id: id}, NewUser, {new: true});
+    const user = await this.userModel.findOneAndUpdate({_id: id}, NewUser, {new: true});
     return user;
   }
 

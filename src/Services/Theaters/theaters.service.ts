@@ -22,7 +22,7 @@ export class TheatersService {
   }
 
   async update(id: string, updateTheaterDto: UpdateTheaterDto) {
-    const theaters = await this.theaterModel.updateOne({_id: id}, updateTheaterDto, {new: true});
+    const theaters = await this.theaterModel.findOneAndUpdate({_id: id}, updateTheaterDto, {new: true});
     return theaters;
   }
 

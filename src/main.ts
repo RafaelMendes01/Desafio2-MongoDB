@@ -5,7 +5,10 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   const config = new DocumentBuilder()
+  .addServer('/')
+  .addServer('/rm')
   .setTitle('API MONGODB 2')
   .setDescription('api criada para realizar operações basicas em um banco de dados nosql')
   .setVersion('1.0')

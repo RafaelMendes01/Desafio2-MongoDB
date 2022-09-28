@@ -22,7 +22,7 @@ export class SessionsService {
   }
 
   async update(id: string, updateSessionDto: UpdateSessionDto) {
-    const sessions = await this.sessionModel.updateOne({_id: id}, updateSessionDto, {new: true});
+    const sessions = await this.sessionModel.findOneAndUpdate({_id: id}, updateSessionDto, {new: true});
     return sessions;
   }
 
