@@ -25,6 +25,11 @@ export class SessionsController {
     return this.sessionsService.findAndPaginate(limit, skip);
   }
 
+  @Get('count')
+  findAndCount() {
+    return this.sessionsService.findAndCount();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.sessionsService.findOne(id);

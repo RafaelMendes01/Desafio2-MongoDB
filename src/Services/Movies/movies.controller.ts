@@ -25,6 +25,11 @@ export class MoviesController {
     return this.moviesService.findAndPaginate(limit, skip);
   }
 
+  @Get('count')
+  findAndCount() {
+    return this.moviesService.findAndCount();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.moviesService.findOne(id);

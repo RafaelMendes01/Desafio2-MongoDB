@@ -26,6 +26,10 @@ export class UsersService {
     return this.userModel.find().limit(limit).skip(skipValue);
   }
 
+  async findAndCount(){
+    return this.userModel.find().count()
+  }
+
   async findOne(id: string) {
     return this.userModel.findById(id);
   }

@@ -25,6 +25,10 @@ export class TheatersController {
     return this.theatersService.findAndPaginate(limit, skip);
   }
 
+  @Get('count')
+  findAndCount() {
+    return this.theatersService.findAndCount();
+  }
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.theatersService.findOne(id);

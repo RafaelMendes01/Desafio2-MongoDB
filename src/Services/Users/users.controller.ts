@@ -26,6 +26,10 @@ export class UsersController {
   findAndPaginate(@Query('limit') limit: number, @Query('skip') skip: number) {
     return this.usersService.findAndPaginate(limit, skip);
   }
+  @Get('count')
+  findAndCount() {
+    return this.usersService.findAndCount();
+  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {

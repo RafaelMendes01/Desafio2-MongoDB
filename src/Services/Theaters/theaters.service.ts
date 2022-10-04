@@ -22,6 +22,10 @@ export class TheatersService {
     return this.theaterModel.find().limit(limit).skip(skipValue);
   }
 
+  async findAndCount(){
+    return this.theaterModel.find().count()
+  }
+
   async findOne(id: string) {
     return this.theaterModel.findById(id);
   }

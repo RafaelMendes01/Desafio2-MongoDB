@@ -25,6 +25,12 @@ export class CommentsController {
     return this.commentsService.findAndPaginate(limit, skip);
   }
 
+  @Get('count')
+  findAndCount() {
+    return this.commentsService.findAndCount();
+  }
+
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.commentsService.findOne(id);

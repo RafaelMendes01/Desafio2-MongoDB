@@ -22,6 +22,10 @@ export class CommentsService {
     return this.commentsModel.find().limit(limit).skip(skipValue);
   }
 
+  async findAndCount(){
+    return this.commentsModel.find().count()
+  }
+
   async findOne(id: string) {
     return this.commentsModel.findById(id);
   }

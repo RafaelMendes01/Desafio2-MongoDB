@@ -22,6 +22,10 @@ export class MoviesService {
     return this.movieModel.find().limit(limit).skip(skipValue);
   }
 
+  async findAndCount(){
+    return this.movieModel.find().count()
+  }
+
   async findOne(id: string) {
     return this.movieModel.findById(id);
   }

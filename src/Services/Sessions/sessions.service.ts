@@ -26,6 +26,10 @@ export class SessionsService {
     return this.sessionModel.find().limit(limit).skip(skipValue);
   }
 
+  async findAndCount(){
+    return this.sessionModel.find().count()
+  }
+
   async update(id: string, updateSessionDto: UpdateSessionDto) {
     const sessions = await this.sessionModel.findOneAndUpdate({_id: id}, updateSessionDto, {new: true});
     return sessions;
